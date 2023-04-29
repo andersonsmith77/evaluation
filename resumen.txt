@@ -1,0 +1,5 @@
+Listar todos los perros donde raza sea igual a [raza] y nombre_dueno empieza con [nombre_dueno]
+Devolver el promedio de peso donde raza sea igual a [raza]
+Según el nombre_de_perro devolver la información del perro y todos los premios ganados.
+
+Me hicieron falta el literal 4 y 5
