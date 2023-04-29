@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  pets:
+    build: ./microservices/pets-service
+
+  prizes:
+    build: ./microservices/prizes-service
+
+  races:
+    build: ./microservices/races-service
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - pets
+      - prizes
+      - races
