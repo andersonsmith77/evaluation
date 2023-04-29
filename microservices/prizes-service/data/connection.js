@@ -11,9 +11,6 @@ async function getChampionships() {
         resolve(jsonData);
       }
     });
-  })
-  .finally(() => {
-    db.close();
   });
 }
 
