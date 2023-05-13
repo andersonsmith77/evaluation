@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "f620544a-9265-4499-a34a-ca9917a4acdb",
+		"name": "Reposicion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13047773"
+	},
+	"item": [
+		{
+			"name": "primer ejercicio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v2/races/creditedType/true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"races",
+						"creditedType",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "segundo ejercicio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v2/pets/weightGrouping/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"pets",
+						"weightGrouping",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
