@@ -1,5 +1,6 @@
-Listar todos los perros donde raza sea igual a [raza] y nombre_dueno empieza con [nombre_dueno]
-Devolver el promedio de peso donde raza sea igual a [raza]
-Según el nombre_de_perro devolver la información del perro y todos los premios ganados.
+Hice la primera parte de cada ejercicio, aunque no estan probadas debido a que habia desinstalado el Docker Desktop
+por motivos de memoria y principalmente porque no estaba al día de la fecha evaluación.
 
-Me hicieron falta el literal 4 y 5
+Hecho:
+1. Según al valor de “acreditado” listar todos los perros correspondientes a esa raza...
+2. Según los 10 perros mas pesados devolver toda la información de la raza...

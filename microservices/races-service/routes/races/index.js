@@ -3,6 +3,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const axios = require("axios");
+
 const getData = require("../../utils/converter.js");
 
 const logger = (message) => console.log(`Races Service: ${message}`);
@@ -51,14 +53,14 @@ router.get("/creditedType/:creditedType(true|false|-)", async (req, res) => {
   let petList;
   let prizeList;
 
-  try {
+  /*try {
     const pets = await axios.get(`${petsMicroserviceUrl}/`);
     petList = pets.data.data;
 
   } catch (error) {
     console.log(error);
     return res.status(500).send("Error trying to communicate with the pets service.");
-  }
+  }*/
 
   try {
     const prizes = await axios.get(`${prizesMicroserviceUrl}/`);
@@ -69,7 +71,7 @@ router.get("/creditedType/:creditedType(true|false|-)", async (req, res) => {
     return res.status(500).send("Error trying to communicate with the prizes service.");
   }
 
-  const winnerPets = petList.filter(pet => {
+  /*const winnerPets = petList.filter(pet => {
     return raceList.some(race => {
       return race.race === pet.race;
     })
@@ -87,6 +89,14 @@ router.get("/creditedType/:creditedType(true|false|-)", async (req, res) => {
     data: {
       petCredited: petList,
       prizeWon: prizesWon
+    },
+  }*/
+
+  const response = {
+    service: "races",
+    architecture: "microservices",
+    data: {
+      raceList: raceList,
     },
   }
 

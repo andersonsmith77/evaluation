@@ -3,9 +3,13 @@ const express = require("express");
 
 const router = express.Router();
 
+const axios = require("axios");
+
 const data = require("../../data/datos_perro.json");
 
 const logger = (message) => console.log(`Pets Service: ${message}`);
+
+const racesMicroserviceUrl = "http://races:5000/api/v2/races";
 
 router.get("/", (req, res) => {
   
@@ -69,6 +73,35 @@ router.get("/searchPetByName/:petName", (req, res) => {
     service: "pets",
     architecture: "microservices",
     data: pet,
+  };
+
+  return res.send(response);
+});
+
+router.get("/weightGrouping/", async (req, res) => {
+  let pets = data.sort((a, b) => a.peso - b.peso);
+
+  const theTenHeaviestPetsRaces = pets.slice(0, 10).map(pet => pet.raza);
+
+  let raceList;
+
+  try{
+    const races = await axios.get(`${racesMicroserviceUrl}`);
+    raceList = races.data.data;
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Error trying to communicate with the races service.");
+  }
+
+  const racesInfo = raceList.filter(race => theTenHeaviestPetsRaces.includes(race.raza));
+
+  const response = {
+    service: "pets",
+    architecture: "microservices",
+    data: {
+      racesInfo: racesInfo
+    },
   };
 
   return res.send(response);
